@@ -3,7 +3,17 @@
 # element to the block, where the index starts at the passed in index
 #
 # You can only use the `#each` method on the input array
-def map_with_index(array, index = 0, &block)
+def map_with_index(array, index = 0, &block) # if you don't pass an index value, it will set the index value to 0
+
+  result = []
+
+  array.each do |item|
+    result << block.call(item, index)
+    index += 1
+  end
+
+  result
+
 end
 
 require 'rspec'

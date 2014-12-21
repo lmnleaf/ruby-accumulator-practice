@@ -3,6 +3,19 @@
 #
 # You can use any methods you like on the input array
 def to_sentence(array)
+
+  result = ""
+
+  last_item = array.pop.to_s
+
+  first_items = array.join(', ').to_s
+
+  if array != []
+    result = first_items + " and " + last_item
+  else
+    result
+  end
+
 end
 
 require 'rspec'

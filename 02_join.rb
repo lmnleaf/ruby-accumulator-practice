@@ -3,6 +3,40 @@
 #
 # You can only use the `#each` method on the input array
 
+def join(array, string = "")
+
+  result = ""
+
+  item_and_string = []
+
+  array.each do |item|
+    item_and_string ||= []
+    item_and_string << item + string
+  end
+
+  item_and_string
+
+  item_and_string.each do |i_a_s|
+     result = result + i_a_s
+  end
+
+  if string != ""
+    result = result.chop
+  else
+    result
+  end
+
+end
+
+# could combine the two each methods above like this:
+# array.each do |item|
+#   result += item + string
+# end
+
+# instead of each could use flat_map
+# item_and_string = array.flat_map do |item|
+#  item + string
+# end
 
 require 'rspec'
 require 'rspec/autorun'

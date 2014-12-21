@@ -4,6 +4,18 @@
 #
 # You can only use the `#each` method on the input array
 def map_with_index(array, &block)
+
+  result = []
+
+  index = 0
+  
+  array.each do |item|
+    result << block.call(item, index)
+    index = index + 1
+  end
+
+  result
+
 end
 
 require 'rspec'
