@@ -1,27 +1,56 @@
 # Write code that can transpose an array of arrays into another array of arrays
 #
 # You can use any methods you like on the input array except `#transpose`
+#
+# def transpose(inputs)
+#
+#   result = []
+#
+#   count = inputs.length
+#
+#   while count > 0 do
+#
+#     array = inputs.flatten
+#     first_item = array.first
+#     smaller_array = array.select { |a| a == first_item }
+#     result << smaller_array
+#     inputs = array.reject { |a| a == first_item }
+#     count = inputs.length
+#
+#   end
+#
+#   p result
+#
+# end
+
 
 def transpose(inputs)
 
   result = []
 
-  count = inputs.length
+  if inputs != []
 
-  while count > 0 do
+    count = inputs.first.length
 
-    array = inputs.flatten
-    first_item = array.first
-    smaller_array = array.select { |a| a == first_item }
-    result << smaller_array
-    inputs = array.reject { |a| a == first_item }
-    count = inputs.length
+    while count > 0 do
+
+      smaller_array = []
+
+      inputs.each do |input|
+        smaller_array << input[count-1]
+      end
+
+      result << smaller_array
+      count = count - 1
+
+    end
 
   end
 
-  p result
+  result.reverse
 
 end
+
 
 
 require 'rspec'
